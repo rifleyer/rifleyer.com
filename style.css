@@ -1,7 +1,7 @@
 /* ==============================
    DISEÑO "FUTURISTA"
    TEMA: DARK MODE + GLASSMORPHISM
-   LAYOUT: SIDEBAR (Barra Lateral)
+   LAYOUT: HEADER HORIZONTAL ESTÁNDAR
    ==============================
 */
 
@@ -17,134 +17,7 @@
     --color-fondo-vidrio: rgba(255, 255, 255, 0.05);
     --fuente-titulos: 'Montserrat', sans-serif;
     --fuente-general: 'Inter', sans-serif;
-    --sidebar-width: 280px; /* Ancho del sidebar en desktop */
-}
-
-/* --- NUEVA ESTRUCTURA: Sidebar Layout --- */
-
-/* En Desktop: Layout de 2 columnas */
-body {
-    display: flex;
-}
-
-.sidebar {
-    width: var(--sidebar-width);
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: var(--color-fondo-claro);
-    border-right: 1px solid var(--color-borde-vidrio);
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    z-index: 1000;
-    transition: left 0.3s ease-in-out;
-    overflow-y: auto; /* Para que el sidebar tenga scroll si es muy largo */
-}
-
-.sidebar-top {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--color-borde-vidrio);
-}
-
-.sidebar-nav ul {
-    display: flex;
-    flex-direction: column; /* Menú vertical */
-    gap: 5px; /* Espacio entre items */
-}
-
-.sidebar-nav ul li a {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Espacio entre icono y texto */
-    padding: 12px 15px;
-    border-radius: 8px;
-    color: var(--color-texto);
-    font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 1rem;
-}
-
-.sidebar-nav ul li a:hover {
-    background-color: var(--color-fondo-vidrio);
-    color: var(--color-titulos);
-}
-
-.sidebar-nav ul li a i {
-    width: 20px; /* Ancho fijo para alinear iconos */
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--color-primario);
-}
-
-/* Sección de Proyectos en el Sidebar */
-.sidebar-proyectos {
-    margin-top: auto; /* Empuja esto al fondo del sidebar */
-    padding-top: 20px;
-    border-top: 1px solid var(--color-borde-vidrio);
-}
-
-.sidebar-proyectos h3 {
-    color: var(--color-texto);
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-}
-
-.proyecto-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 15px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-family: var(--fuente-titulos);
-    background-color: var(--color-fondo-vidrio);
-    color: #ffc107; /* Dorado PixelPlay */
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.proyecto-link:hover {
-    background-color: #ffc107;
-    color: var(--color-fondo-oscuro);
-}
-
-.proyecto-link i {
-    font-size: 0.9rem;
-}
-
-/* Contenido Principal */
-#page-content {
-    width: calc(100% - var(--sidebar-width));
-    margin-left: var(--sidebar-width);
-    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
-}
-
-/* Header de Móvil (oculto en desktop) */
-.mobile-header {
-    display: none;
-    padding: 15px;
-    background-color: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--color-borde-vidrio);
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.menu-toggle {
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    color: var(--color-titulos);
-    cursor: pointer;
-    z-index: 1001; /* Encima de todo */
+    /* Ya no necesitamos la variable --project-bar-width */
 }
 
 
@@ -155,7 +28,6 @@ body {
     padding: 0;
 }
 
-/* El 'display: flex' del body ya está en la sección de Sidebar */
 body {
     font-family: var(--fuente-general);
     line-height: 1.7;
@@ -163,7 +35,10 @@ body {
     background-color: var(--color-fondo-oscuro);
     scroll-behavior: smooth;
     overflow-x: hidden; /* Evitar scroll horizontal */
+    /* Se eliminó display: flex; */
 }
+
+/* Ya no hay .main-content-wrapper */
 
 .container {
     width: 90%;
@@ -278,10 +153,77 @@ ul {
     color: var(--color-primario);
 }
 
+/* --- Header (Horizontal Original Restaurado) --- */
+header {
+    background-color: rgba(10, 10, 10, 0.7); /* Fondo de vidrio semi-transparente */
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--color-borde-vidrio);
+    width: 100%; /* Ocupa todo el ancho */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .logo se usa para el <img> ahora */
+.logo { 
+    display: block;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li a {
+    color: var(--color-texto);
+    padding: 10px 15px;
+    display: block;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primario);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 80%;
+}
+
+nav ul li a:hover {
+    color: var(--color-primario);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--color-titulos);
+    cursor: pointer;
+}
+
 
 /* --- Hero Section --- */
 .hero {
-    background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.8)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
+    background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.8)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%D&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
     color: var(--color-titulos);
     text-align: center;
     padding: 120px 0;
@@ -435,6 +377,49 @@ ul {
 
 .producto-info .boton {
     width: 100%; /* El botón ocupa todo el ancho */
+}
+
+/* --- NUEVA SECCIÓN: Proyectos --- */
+/* Usaremos un grid con 2 columnas para que no se vea vacío */
+.grid-proyectos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    /* Centramos las tarjetas si son pocas */
+    max-width: 800px; /* Por ejemplo, para 2 tarjetas */
+    margin: 0 auto;
+}
+
+/* Reutilizamos el estilo de .servicio-card y lo llamamos .proyecto-card */
+.proyecto-card {
+    background: var(--color-fondo-vidrio);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-borde-vidrio);
+    padding: 35px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para alinear el botón */
+}
+
+.proyecto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px var(--color-primario-glow);
+    background: rgba(0, 123, 255, 0.05);
+    border-color: var(--color-primario);
+}
+
+.proyecto-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: var(--color-titulos);
+}
+.proyecto-card p {
+    margin-bottom: 25px;
+    flex-grow: 1;
 }
 
 
@@ -790,46 +775,61 @@ footer {
 .producto-card:nth-child(2) { transition-delay: 0.1s; }
 .producto-card:nth-child(3) { transition-delay: 0.2s; }
 
+.proyecto-card:nth-child(2) { transition-delay: 0.1s; }
+
 .proceso-item:nth-child(2) { transition-delay: 0.15s; }
 .proceso-item:nth-child(3) { transition-delay: 0.3s; }
 
 
-/* --- NUEVA Media Query (Tablet y Móvil) --- */
-@media (max-width: 992px) {
-    /* Ocultamos el sidebar por defecto */
-    .sidebar {
-        left: -100%; /* Totalmente fuera de la pantalla */
-    }
-    
-    /* El sidebar se muestra cuando tiene la clase 'active' (controlado por JS) */
-    .sidebar.active {
-        left: 0;
-        width: 280px; /* Ancho fijo al deslizarse */
-        box-shadow: 0 0 50px rgba(0,0,0,0.5);
-    }
-    
-    /* El contenido principal ocupa todo el ancho */
-    #page-content {
-        width: 100%;
-        margin-left: 0;
-    }
-    
-    /* Mostramos el header de móvil */
-    .mobile-header {
-        display: flex;
-    }
+/* --- Media Queries (Diseño Responsivo) --- */
 
-    /* Ocultamos el logo duplicado del sidebar en móvil */
-    .sidebar .sidebar-top .logo {
+/* Tablet y pantallas más pequeñas */
+@media (max-width: 992px) {
+    /* La barra de proyectos ya no existe, así que no hay reglas de sidebar que borrar */
+    
+    /* --- ESTILOS DE MENÚ MÓVIL (para el header horizontal) --- */
+    header .container {
+        flex-wrap: wrap;
+    }
+    nav {
+        order: 3;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+    }
+    nav.active {
+        max-height: 400px; /* Aumentado para el nuevo ítem "Proyectos" */
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    nav ul li a {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--color-borde-vidrio);
+    }
+    nav ul li a:hover {
+        background: var(--color-fondo-vidrio);
+    }
+    nav ul li a::after {
         display: none;
     }
-
-    /* Ajustes al header de móvil */
-    .mobile-header .logo img {
-        height: 35px; /* Ajusta esto si es necesario */
+    .menu-toggle {
+        display: block;
+    }
+    .logo {
+        flex-grow: 1;
     }
 
-    /* Ajustes de responsive (como los que tenías antes) */
+
+    /* --- OTROS AJUSTES RESPONSIVE --- */
     .hero h1 {
         font-size: 3rem;
     }
@@ -852,8 +852,25 @@ footer {
     .proceso-icono {
         margin: -70px auto 20px 30px;
     }
+}
 
+/* Teléfonos móviles */
+@media (max-width: 768px) {
+    .hero {
+        padding: 80px 0;
+        min-height: 400px;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero .tagline {
+        font-size: 1.1rem;
+    }
+    .hero .description {
+        font-size: 1rem;
+    }
     .hero-buttons {
+        display: flex;
         flex-direction: column;
         gap: 15px;
         align-items: center;
@@ -863,8 +880,29 @@ footer {
         width: 90%;
     }
 
-    .grid-servicios, .grid-productos, .grid-testimonios, .contacto-grid, .footer-contenido, .stats-grid {
+    .grid-servicios, .grid-productos, .grid-proyectos, .grid-testimonios, .contacto-grid, .footer-contenido, .stats-grid {
         grid-template-columns: 1fr; /* Una columna */
+    }
+    /* El grid de proyectos con max-width se anula */
+    .grid-proyectos {
+        max-width: none;
+    }
+
+    .titulo-seccion {
+        font-size: 2rem;
+    }
+    .proceso-timeline::before {
+        left: 30px;
+    }
+    .proceso-icono {
+        margin: -70px auto 20px 10px;
+    }
+    .faq-pregunta span {
+        font-size: 1.1rem;
+    }
+    .logo img {
+        height: 35px; /* Un poco más pequeño en pantallas pequeñas */
+        max-width: 150px;
     }
 }
 
@@ -905,23 +943,4 @@ footer {
 
 .logo img:hover {
     transform: scale(1.05); /* Ligeramente más grande al pasar el ratón */
-}
-
-/* Ajustes para el logo en móvil si el tamaño es muy grande */
-@media (max-width: 768px) {
-    .logo img {
-        height: 35px; /* Un poco más pequeño en pantallas pequeñas */
-        max-width: 150px;
-    }
-    
-    /* Ajustes responsivos de la versión anterior que faltaban */
-    .proceso-timeline::before {
-        left: 30px;
-    }
-    .proceso-icono {
-        margin: -70px auto 20px 10px;
-    }
-    .faq-pregunta span {
-        font-size: 1.1rem;
-    }
 }

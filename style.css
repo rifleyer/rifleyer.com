@@ -17,7 +17,6 @@
     --color-fondo-vidrio: rgba(255, 255, 255, 0.05);
     --fuente-titulos: 'Montserrat', sans-serif;
     --fuente-general: 'Inter', sans-serif;
-    /* Ya no necesitamos la variable --project-bar-width */
 }
 
 
@@ -35,10 +34,7 @@ body {
     background-color: var(--color-fondo-oscuro);
     scroll-behavior: smooth;
     overflow-x: hidden; /* Evitar scroll horizontal */
-    /* Se eliminó display: flex; */
 }
-
-/* Ya no hay .main-content-wrapper */
 
 .container {
     width: 90%;
@@ -153,7 +149,7 @@ ul {
     color: var(--color-primario);
 }
 
-/* --- Header (Horizontal Original Restaurado) --- */
+/* --- Header (Horizontal Original) --- */
 header {
     background-color: rgba(10, 10, 10, 0.7); /* Fondo de vidrio semi-transparente */
     backdrop-filter: blur(10px);
@@ -162,7 +158,7 @@ header {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid var(--color-borde-vidrio);
-    width: 100%; /* Ocupa todo el ancho */
+    width: 100%;
 }
 
 header .container {
@@ -171,7 +167,6 @@ header .container {
     align-items: center;
 }
 
-/* .logo se usa para el <img> ahora */
 .logo { 
     display: block;
 }
@@ -314,83 +309,17 @@ nav ul li a:hover {
     color: var(--color-titulos);
 }
 
-/* --- Productos Destacados --- */
-.grid-productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
+/* --- ESTILOS DE PRODUCTOS ELIMINADOS --- */
 
-.producto-card {
-    background: var(--color-fondo-vidrio);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--color-borde-vidrio);
-    border-radius: 12px;
-    overflow: hidden; /* Para que la imagen se ajuste a los bordes */
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column; /* Para alinear el botón abajo */
-}
-
-.producto-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 25px var(--color-primario-glow);
-}
-
-.producto-imagen {
-    width: 100%;
-    height: 220px; /* Altura fija para la imagen */
-    overflow: hidden;
-}
-
-.producto-imagen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* La imagen cubre el espacio sin deformarse */
-    transition: transform 0.3s ease;
-}
-
-.producto-card:hover .producto-imagen img {
-    transform: scale(1.05); /* Sutil zoom a la imagen */
-}
-
-.producto-info {
-    padding: 25px;
-    flex-grow: 1; /* Empuja el botón al fondo */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.producto-info h3 {
-    font-size: 1.6rem;
-    margin-bottom: 15px;
-    color: var(--color-titulos);
-}
-
-.producto-info p {
-    margin-bottom: 25px;
-    flex-grow: 1; /* Ocupa el espacio disponible */
-}
-
-.producto-info .boton {
-    width: 100%; /* El botón ocupa todo el ancho */
-}
-
-/* --- NUEVA SECCIÓN: Proyectos --- */
-/* Usaremos un grid con 2 columnas para que no se vea vacío */
+/* --- Sección: Proyectos --- */
 .grid-proyectos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    /* Centramos las tarjetas si son pocas */
-    max-width: 800px; /* Por ejemplo, para 2 tarjetas */
+    max-width: 800px; /* Para 2 tarjetas */
     margin: 0 auto;
 }
 
-/* Reutilizamos el estilo de .servicio-card y lo llamamos .proyecto-card */
 .proyecto-card {
     background: var(--color-fondo-vidrio);
     backdrop-filter: blur(10px);
@@ -421,6 +350,13 @@ nav ul li a:hover {
     margin-bottom: 25px;
     flex-grow: 1;
 }
+/* El icono .fa-popcorn usará el estilo .icono-servicio */
+.proyecto-card .icono-servicio {
+    color: #ffc107; /* Dorado para PixelPlay */
+}
+.proyecto-card:hover .icono-servicio {
+    color: #ffd54f;
+}
 
 
 /* --- Proceso Timeline --- */
@@ -432,11 +368,10 @@ nav ul li a:hover {
     padding-top: 20px;
 }
 
-/* Línea de fondo (pseudo-elemento) */
 .proceso-timeline::before {
     content: '';
     position: absolute;
-    top: 50px; /* Alinear con los iconos */
+    top: 50px;
     left: 10%;
     width: 80%;
     height: 3px;
@@ -446,7 +381,7 @@ nav ul li a:hover {
 }
 
 .proceso-item {
-    background: var(--color-fondo-oscuro); /* Fondo más sólido */
+    background: var(--color-fondo-oscuro);
     border: 1px solid var(--color-borde-vidrio);
     border-radius: 10px;
     padding: 30px;
@@ -471,7 +406,7 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: -70px auto 20px auto; /* Saca el icono de la caja */
+    margin: -70px auto 20px auto;
     border: 5px solid var(--color-fondo-claro);
 }
 
@@ -626,12 +561,74 @@ nav ul li a:hover {
 }
 
 
-/* --- Contacto --- */
-.contacto-grid {
+/* --- Estilos de Sección de Contacto (Formulario y Mapa) --- */
+.contact-layout-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
     gap: 30px;
-    margin-bottom: 40px;
+}
+
+.contact-form-wrapper {
+    background: var(--color-fondo-vidrio);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-borde-vidrio);
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.contact-form-wrapper h3 {
+    font-size: 1.8rem;
+    color: var(--color-titulos);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-texto);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-borde-vidrio);
+    border-radius: 8px;
+    color: var(--color-titulos);
+    font-family: var(--fuente-general);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 10px var(--color-primario-glow);
+}
+
+.contact-form textarea {
+    resize: vertical; /* Permite al usuario ajustar la altura */
+}
+
+.contact-form .boton {
+    width: 100%;
+    font-size: 1rem;
+}
+
+.contact-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 .info-contacto-item {
@@ -639,7 +636,7 @@ nav ul li a:hover {
     backdrop-filter: blur(10px);
     border: 1px solid var(--color-borde-vidrio);
     padding: 30px;
-    border-radius: 8px;
+    border-radius: 12px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -670,6 +667,22 @@ nav ul li a:hover {
 }
 .info-contacto-item a:hover {
     color: var(--color-primario);
+}
+
+.map-responsive {
+    background: var(--color-fondo-vidrio);
+    border: 1px solid var(--color-borde-vidrio);
+    border-radius: 12px;
+    overflow: hidden;
+    height: 300px;
+    position: relative;
+}
+
+.map-responsive iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: invert(100%) grayscale(80%); /* Efecto dark mode para el mapa */
 }
 
 
@@ -765,15 +778,12 @@ footer {
     transform: translateY(0);
 }
 
-/* Delay para las tarjetas (opcional pero genial) */
+/* Delay para las tarjetas */
 .servicio-card:nth-child(2) { transition-delay: 0.1s; }
 .servicio-card:nth-child(3) { transition-delay: 0.2s; }
 .servicio-card:nth-child(4) { transition-delay: 0.1s; }
 .servicio-card:nth-child(5) { transition-delay: 0.2s; }
 .servicio-card:nth-child(6) { transition-delay: 0.3s; }
-
-.producto-card:nth-child(2) { transition-delay: 0.1s; }
-.producto-card:nth-child(3) { transition-delay: 0.2s; }
 
 .proyecto-card:nth-child(2) { transition-delay: 0.1s; }
 
@@ -785,7 +795,6 @@ footer {
 
 /* Tablet y pantallas más pequeñas */
 @media (max-width: 992px) {
-    /* La barra de proyectos ya no existe, así que no hay reglas de sidebar que borrar */
     
     /* --- ESTILOS DE MENÚ MÓVIL (para el header horizontal) --- */
     header .container {
@@ -799,7 +808,7 @@ footer {
         transition: max-height 0.4s ease-out;
     }
     nav.active {
-        max-height: 400px; /* Aumentado para el nuevo ítem "Proyectos" */
+        max-height: 400px; /* 7 items */
     }
     nav ul {
         flex-direction: column;
@@ -852,6 +861,11 @@ footer {
     .proceso-icono {
         margin: -70px auto 20px 30px;
     }
+    
+    /* Responsive para la sección de contacto */
+    .contact-layout-grid {
+        grid-template-columns: 1fr; /* Una columna en tablet y móvil */
+    }
 }
 
 /* Teléfonos móviles */
@@ -880,7 +894,7 @@ footer {
         width: 90%;
     }
 
-    .grid-servicios, .grid-productos, .grid-proyectos, .grid-testimonios, .contacto-grid, .footer-contenido, .stats-grid {
+    .grid-servicios, .grid-proyectos, .grid-testimonios, .footer-contenido, .stats-grid {
         grid-template-columns: 1fr; /* Una columna */
     }
     /* El grid de proyectos con max-width se anula */

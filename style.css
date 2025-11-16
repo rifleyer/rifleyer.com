@@ -1,6 +1,7 @@
 /* ==============================
    DISEÑO "FUTURISTA"
    TEMA: DARK MODE + GLASSMORPHISM
+   LAYOUT: SIDEBAR (Barra Lateral)
    ==============================
 */
 
@@ -16,7 +17,136 @@
     --color-fondo-vidrio: rgba(255, 255, 255, 0.05);
     --fuente-titulos: 'Montserrat', sans-serif;
     --fuente-general: 'Inter', sans-serif;
+    --sidebar-width: 280px; /* Ancho del sidebar en desktop */
 }
+
+/* --- NUEVA ESTRUCTURA: Sidebar Layout --- */
+
+/* En Desktop: Layout de 2 columnas */
+body {
+    display: flex;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--color-fondo-claro);
+    border-right: 1px solid var(--color-borde-vidrio);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    transition: left 0.3s ease-in-out;
+    overflow-y: auto; /* Para que el sidebar tenga scroll si es muy largo */
+}
+
+.sidebar-top {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-borde-vidrio);
+}
+
+.sidebar-nav ul {
+    display: flex;
+    flex-direction: column; /* Menú vertical */
+    gap: 5px; /* Espacio entre items */
+}
+
+.sidebar-nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre icono y texto */
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: var(--color-texto);
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1rem;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: var(--color-fondo-vidrio);
+    color: var(--color-titulos);
+}
+
+.sidebar-nav ul li a i {
+    width: 20px; /* Ancho fijo para alinear iconos */
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-primario);
+}
+
+/* Sección de Proyectos en el Sidebar */
+.sidebar-proyectos {
+    margin-top: auto; /* Empuja esto al fondo del sidebar */
+    padding-top: 20px;
+    border-top: 1px solid var(--color-borde-vidrio);
+}
+
+.sidebar-proyectos h3 {
+    color: var(--color-texto);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.proyecto-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: var(--fuente-titulos);
+    background-color: var(--color-fondo-vidrio);
+    color: #ffc107; /* Dorado PixelPlay */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.proyecto-link:hover {
+    background-color: #ffc107;
+    color: var(--color-fondo-oscuro);
+}
+
+.proyecto-link i {
+    font-size: 0.9rem;
+}
+
+/* Contenido Principal */
+#page-content {
+    width: calc(100% - var(--sidebar-width));
+    margin-left: var(--sidebar-width);
+    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+/* Header de Móvil (oculto en desktop) */
+.mobile-header {
+    display: none;
+    padding: 15px;
+    background-color: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-borde-vidrio);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--color-titulos);
+    cursor: pointer;
+    z-index: 1001; /* Encima de todo */
+}
+
 
 /* --- Estilos Generales y Reseteo --- */
 * {
@@ -25,6 +155,7 @@
     padding: 0;
 }
 
+/* El 'display: flex' del body ya está en la sección de Sidebar */
 body {
     font-family: var(--fuente-general);
     line-height: 1.7;
@@ -147,78 +278,6 @@ ul {
     color: var(--color-primario);
 }
 
-/* --- Header --- */
-header {
-    background-color: rgba(10, 10, 10, 0.7); /* Fondo de vidrio semi-transparente */
-    backdrop-filter: blur(10px);
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid var(--color-borde-vidrio);
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-family: var(--fuente-titulos);
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--color-titulos);
-    text-decoration: none;
-}
-
-.logo:hover {
-    color: var(--color-primario);
-}
-
-nav ul {
-    display: flex;
-}
-
-nav ul li a {
-    color: var(--color-texto);
-    padding: 10px 15px;
-    display: block;
-    font-weight: 600;
-    position: relative;
-    transition: color 0.3s ease;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-}
-
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background-color: var(--color-primario);
-    transition: width 0.3s ease;
-}
-
-nav ul li a:hover::after {
-    width: 80%;
-}
-
-nav ul li a:hover {
-    color: var(--color-primario);
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    color: var(--color-titulos);
-    cursor: pointer;
-}
 
 /* --- Hero Section --- */
 .hero {
@@ -313,7 +372,73 @@ nav ul li a:hover {
     color: var(--color-titulos);
 }
 
-/* --- NUEVO: Proceso Timeline --- */
+/* --- Productos Destacados --- */
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.producto-card {
+    background: var(--color-fondo-vidrio);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-borde-vidrio);
+    border-radius: 12px;
+    overflow: hidden; /* Para que la imagen se ajuste a los bordes */
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Para alinear el botón abajo */
+}
+
+.producto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px var(--color-primario-glow);
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 220px; /* Altura fija para la imagen */
+    overflow: hidden;
+}
+
+.producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen cubre el espacio sin deformarse */
+    transition: transform 0.3s ease;
+}
+
+.producto-card:hover .producto-imagen img {
+    transform: scale(1.05); /* Sutil zoom a la imagen */
+}
+
+.producto-info {
+    padding: 25px;
+    flex-grow: 1; /* Empuja el botón al fondo */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.producto-info h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: var(--color-titulos);
+}
+
+.producto-info p {
+    margin-bottom: 25px;
+    flex-grow: 1; /* Ocupa el espacio disponible */
+}
+
+.producto-info .boton {
+    width: 100%; /* El botón ocupa todo el ancho */
+}
+
+
+/* --- Proceso Timeline --- */
 .proceso-timeline {
     display: flex;
     justify-content: space-between;
@@ -453,7 +578,7 @@ nav ul li a:hover {
     font-style: normal;
 }
 
-/* --- NUEVO: FAQ Acordeón --- */
+/* --- FAQ Acordeón --- */
 .faq-acordeon {
     max-width: 800px;
     margin: 0 auto;
@@ -662,14 +787,49 @@ footer {
 .servicio-card:nth-child(5) { transition-delay: 0.2s; }
 .servicio-card:nth-child(6) { transition-delay: 0.3s; }
 
+.producto-card:nth-child(2) { transition-delay: 0.1s; }
+.producto-card:nth-child(3) { transition-delay: 0.2s; }
+
 .proceso-item:nth-child(2) { transition-delay: 0.15s; }
 .proceso-item:nth-child(3) { transition-delay: 0.3s; }
 
 
-/* --- Media Queries (Diseño Responsivo) --- */
-
-/* Tablet y pantallas más pequeñas */
+/* --- NUEVA Media Query (Tablet y Móvil) --- */
 @media (max-width: 992px) {
+    /* Ocultamos el sidebar por defecto */
+    .sidebar {
+        left: -100%; /* Totalmente fuera de la pantalla */
+    }
+    
+    /* El sidebar se muestra cuando tiene la clase 'active' (controlado por JS) */
+    .sidebar.active {
+        left: 0;
+        width: 280px; /* Ancho fijo al deslizarse */
+        box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    }
+    
+    /* El contenido principal ocupa todo el ancho */
+    #page-content {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    /* Mostramos el header de móvil */
+    .mobile-header {
+        display: flex;
+    }
+
+    /* Ocultamos el logo duplicado del sidebar en móvil */
+    .sidebar .sidebar-top .logo {
+        display: none;
+    }
+
+    /* Ajustes al header de móvil */
+    .mobile-header .logo img {
+        height: 35px; /* Ajusta esto si es necesario */
+    }
+
+    /* Ajustes de responsive (como los que tenías antes) */
     .hero h1 {
         font-size: 3rem;
     }
@@ -681,7 +841,7 @@ footer {
     }
     .proceso-timeline {
         flex-direction: column;
-        gap: 60px; /* Más espacio para los iconos */
+        gap: 60px;
     }
     .proceso-timeline::before {
         left: 50px;
@@ -690,71 +850,10 @@ footer {
         height: 90%;
     }
     .proceso-icono {
-        margin: -70px auto 20px 30px; /* Alinear a la izquierda */
-    }
-}
-
-/* Teléfonos móviles */
-@media (max-width: 768px) {
-    body {
-        /* Desactivar animaciones de scroll en móvil si se desea */
-        /* .animated-card { opacity: 1; transform: none; } */
-    }
-    header .container {
-        flex-wrap: wrap;
-    }
-    nav {
-        order: 3;
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-out;
-    }
-    nav.active {
-        max-height: 350px; /* Altura para el menú expandido */
-    }
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 0;
-    }
-    nav ul li {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 5px;
-    }
-    nav ul li a {
-        padding: 12px 0;
-        border-bottom: 1px solid var(--color-borde-vidrio);
-    }
-    nav ul li a:hover {
-        background: var(--color-fondo-vidrio);
-    }
-    nav ul li a::after {
-        display: none;
-    }
-    .menu-toggle {
-        display: block;
-    }
-    .logo {
-        flex-grow: 1;
+        margin: -70px auto 20px 30px;
     }
 
-    .hero {
-        padding: 80px 0;
-        min-height: 400px;
-    }
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    .hero .tagline {
-        font-size: 1.1rem;
-    }
-    .hero .description {
-        font-size: 1rem;
-    }
     .hero-buttons {
-        display: flex;
         flex-direction: column;
         gap: 15px;
         align-items: center;
@@ -764,22 +863,11 @@ footer {
         width: 90%;
     }
 
-    .grid-servicios, .grid-testimonios, .contacto-grid, .footer-contenido, .stats-grid {
+    .grid-servicios, .grid-productos, .grid-testimonios, .contacto-grid, .footer-contenido, .stats-grid {
         grid-template-columns: 1fr; /* Una columna */
     }
-    .titulo-seccion {
-        font-size: 2rem;
-    }
-    .proceso-timeline::before {
-        left: 30px;
-    }
-    .proceso-icono {
-        margin: -70px auto 20px 10px;
-    }
-    .faq-pregunta span {
-        font-size: 1.1rem;
-    }
 }
+
 
 /* --- Botón Flotante de WhatsApp --- */
 .whatsapp-flotante {
@@ -824,5 +912,16 @@ footer {
     .logo img {
         height: 35px; /* Un poco más pequeño en pantallas pequeñas */
         max-width: 150px;
+    }
+    
+    /* Ajustes responsivos de la versión anterior que faltaban */
+    .proceso-timeline::before {
+        left: 30px;
+    }
+    .proceso-icono {
+        margin: -70px auto 20px 10px;
+    }
+    .faq-pregunta span {
+        font-size: 1.1rem;
     }
 }

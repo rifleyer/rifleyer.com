@@ -1,26 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
             
-    // --- 1. CÓDIGO DEL MENÚ MÓVIL (Tu código original) ---
+    // --- 1. NUEVA LÓGICA DEL MENÚ (SIDEBAR MÓVIL) ---
     const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.getElementById('main-nav');
+    const sidebar = document.getElementById('main-nav'); // El <aside> tiene el ID 'main-nav'
 
     menuToggle.addEventListener('click', function() {
-        nav.classList.toggle('active');
+        sidebar.classList.toggle('active'); // Muestra/oculta el sidebar
         menuToggle.querySelector('i').classList.toggle('fa-bars');
         menuToggle.querySelector('i').classList.toggle('fa-times');
     });
 
-    document.querySelectorAll('#main-nav ul li a').forEach(item => {
+    // Cerrar menú al hacer clic en un enlace (en móvil)
+    // Buscamos enlaces dentro del .sidebar-nav
+    document.querySelectorAll('.sidebar-nav ul li a').forEach(item => {
         item.addEventListener('click', () => {
-            if (nav.classList.contains('active')) {
-                nav.classList.remove('active');
+            if (sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
                 menuToggle.querySelector('i').classList.remove('fa-times');
                 menuToggle.querySelector('i').classList.add('fa-bars');
             }
         });
     });
 
-    // --- 2. NUEVO: EFECTO DE TIPEO (TYPING) EN EL HERO ---
+    // --- 2. EFECTO DE TIPEO (TYPING) EN EL HERO (Sin cambios) ---
     const typingElement = document.getElementById('typing-effect');
     if (typingElement) {
         const text = typingElement.innerText;
@@ -31,35 +33,35 @@ document.addEventListener('DOMContentLoaded', function() {
             if (i < text.length) {
                 typingElement.innerHTML += text.charAt(i);
                 i++;
-                setTimeout(typeWriter, 80); // Velocidad de tipeo
+                setTimeout(typeWriter, 80);
             }
         }
         typeWriter();
     }
 
-    // --- 3. NUEVO: ANIMACIÓN AL HACER SCROLL (INTERSECTION OBSERVER) ---
+    // --- 3. ANIMACIÓN AL HACER SCROLL (Sin cambios) ---
     const animatedCards = document.querySelectorAll('.animated-card');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // Dejar de observar una vez que se animó
+                observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1 // Qué porcentaje del elemento debe estar visible (10%)
+        threshold: 0.1
     });
 
     animatedCards.forEach(card => {
         observer.observe(card);
     });
 
-    // --- 4. NUEVO: LÓGICA DEL ACORDEÓN DE FAQ ---
+    // --- 4. LÓGICA DEL ACORDEÓN DE FAQ (Sin cambios) ---
     const faqPreguntas = document.querySelectorAll('.faq-pregunta');
 
     faqPreguntas.forEach(pregunta => {
-        pregunta.addEventListener('click', () => { // Corregí un 'F' suelto que había aquí
+        pregunta.addEventListener('click', () => {
             const item = pregunta.closest('.faq-item');
             const respuesta = item.querySelector('.faq-respuesta');
             const icono = pregunta.querySelector('i');

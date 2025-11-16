@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rifleyer PC</title>
+    <title>Rifleyer PC - Compra, Venta y Reparación de Computadores</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -11,236 +11,289 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            
-<a href="#inicio" class="logo"><img src="img/logo.png" alt="Rifleyer PC Logo"></a>
-            <nav id="main-nav">
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#proceso">Proceso</a></li>
-                    <li><a href="#sobre-nosotros">Nosotros</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-            <button class="menu-toggle" aria-label="Abrir menú">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
+    <header class="mobile-header">
+        <a href="#inicio" class="logo"><img src="img/logo.png" alt="Rifleyer PC Logo"></a>
+        <button class="menu-toggle" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
     </header>
 
-    <section id="inicio" class="hero">
-        <div class="container">
-            <p class="tagline" id="typing-effect">Tu Solución Integral en Tecnología</p>
-            <h1>Computadores, Venta, Compra y Reparación Profesional</h1>
-            <p class="description">En Rifleyer PC, te ofrecemos lo mejor en equipos informáticos y el soporte técnico que necesitas para mantenerte conectado y productivo.</p>
-            <div class="hero-buttons">
-                <a href="#servicios" class="boton primario">Ver Servicios</a>
-                <a href="#contacto" class="boton secundario">Contáctanos</a>
-            </div>
+    <aside class="sidebar" id="main-nav">
+        <div class="sidebar-top">
+            <a href="#inicio" class="logo"><img src="img/logo.png" alt="Rifleyer PC Logo"></a>
         </div>
-        <div class="hero-bg-shapes"></div>
-    </section>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+                <li><a href="#productos"><i class="fas fa-laptop"></i> Productos</a></li>
+                <li><a href="#proceso"><i class="fas fa-cogs"></i> Proceso</a></li>
+                <li><a href="#sobre-nosotros"><i class="fas fa-users"></i> Nosotros</a></li>
+                <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+        </nav>
 
-    <section id="servicios" class="seccion-principal">
-        <div class="container">
-            <h2 class="titulo-seccion">Nuestros Servicios Destacados</h2>
-            <div class="grid-servicios">
-                <div class="servicio-card animated-card">
-                    <i class="fas fa-laptop-code icono-servicio"></i>
-                    <h3>Venta de Equipos</h3>
-                    <p>Amplio catálogo de laptops y desktops, nuevos y reacondicionados, con garantía y precios competitivos.</p>
-                </div>
-                <div class="servicio-card animated-card">
-                    <i class="fas fa-wrench icono-servicio"></i>
-                    <h3>Reparación Especializada</h3>
-                    <p>Diagnóstico y solución de problemas de hardware y software para todas las marcas y modelos.</p>
-                </div>
-                <div class="servicio-card animated-card">
-                    <i class="fas fa-handshake icono-servicio"></i>
-                    <h3>Compra de Equipos</h3>
-                    <p>Vendemos tus equipos usados de forma rápida y segura, con tasación justa y pago inmediato.</p>
-                </div>
-                <div class="servicio-card animated-card">
-                    <i class="fas fa-shield-alt icono-servicio"></i>
-                    <h3>Mantenimiento Preventivo</h3>
-                    <p>Optimización de rendimiento, limpieza interna y externa para prolongar la vida útil de tus equipos.</p>
-                </div>
-                <div class="servicio-card animated-card">
-                    <i class="fas fa-virus-slash icono-servicio"></i>
-                    <h3>Eliminación de Virus</h3>
-                    <p>Protege tu información. Eliminamos amenazas y configuramos tu sistema para máxima seguridad.</p>
-                </div>
-                <div class="servicio-card animated-card">
-                    <i class="fas fa-cloud-upload-alt icono-servicio"></i>
-                    <h3>Respaldo y Recuperación</h3>
-                    <p>Servicios profesionales para proteger tus datos importantes y recuperarlos en caso de pérdida.</p>
+        <div class="sidebar-proyectos">
+            <h3>Proyectos</h3>
+            <a href="https://rifleyer.github.io/pixelplay/" target="_blank" class="proyecto-link">
+                <i class="fas fa-star"></i>
+                <span>PixelPlay</span>
+            </a>
+            </div>
+    </aside>
+
+    <main id="page-content">
+
+        <section id="inicio" class="hero">
+            <div class="container">
+                <p class="tagline" id="typing-effect">Tu Solución Integral en Tecnología</p>
+                <h1>Computadores, Venta, Compra y Reparación Profesional</h1>
+                <p class="description">En Rifleyer PC, te ofrecemos lo mejor en equipos informáticos y el soporte técnico que necesitas para mantenerte conectado y productivo.</p>
+                <div class="hero-buttons">
+                    <a href="#servicios" class="boton primario">Ver Servicios</a>
+                    <a href="#contacto" class="boton secundario">Contáctanos</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="proceso" class="seccion-alterna">
-        <div class="container">
-            <h2 class="titulo-seccion">Nuestro Proceso</h2>
-            <p class="subtitulo-seccion">Transparente, rápido y eficiente.</p>
-            <div class="proceso-timeline">
-                <div class="proceso-item animated-card">
-                    <div class="proceso-icono"><i class="fas fa-search"></i></div>
-                    <h3>1. Diagnóstico</h3>
-                    <p>Evaluamos tu equipo a fondo para identificar el problema y te damos una cotización clara y sin compromiso.</p>
-                </div>
-                <div class="proceso-item animated-card">
-                    <div class="proceso-icono"><i class="fas fa-cogs"></i></div>
-                    <h3>2. Reparación</h3>
-                    <p>Nuestros técnicos expertos utilizan repuestos de alta calidad para solucionar el problema con precisión y garantía.</p>
-                </div>
-                <div class="proceso-item animated-card">
-                    <div class="proceso-icono"><i class="fas fa-check-circle"></i></div>
-                    <h3>3. Entrega</h3>
-                    <p>Te devolvemos tu equipo 100% funcional, limpio y optimizado, listo para que sigas trabajando.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="sobre-nosotros" class="seccion-principal">
-        <div class="container">
-            <h2 class="titulo-seccion">Sobre Rifleyer PC</h2>
-            <div class="contenido-sobre animated-card">
-                <p>En Rifleyer PC, nacimos de la pasión por la tecnología y el compromiso de ofrecer soluciones informáticas confiables y accesibles. Con años de experiencia en el sector, nos hemos consolidado como tu aliado estratégico para todas tus necesidades de computación.</p>
-                <p>Nuestro equipo de técnicos especializados está dedicado a brindar un servicio excepcional, garantizando que cada compra, venta o reparación se realice con la máxima profesionalidad y transparencia. Creemos en la tecnología como herramienta para potenciar tu vida personal y profesional, y estamos aquí para asegurarnos de que tus equipos funcionen a la perfección.</p>
-                <div class="stats-grid">
-                    <div class="stat-item animated-card">
-                        <i class="fas fa-users"></i>
-                        <h4>+500 Clientes Satisfechos</h4>
+            <div class="hero-bg-shapes"></div>
+        </section>
+        
+        <section id="servicios" class="seccion-principal">
+            <div class="container">
+                <h2 class="titulo-seccion">Nuestros Servicios Destacados</h2>
+                <div class="grid-servicios">
+                    <div class="servicio-card animated-card">
+                        <i class="fas fa-laptop-code icono-servicio"></i>
+                        <h3>Venta de Equipos</h3>
+                        <p>Amplio catálogo de laptops y desktops, nuevos y reacondicionados, con garantía y precios competitivos.</p>
                     </div>
-                    <div class="stat-item animated-card">
-                        <i class="fas fa-tools"></i>
-                        <h4>+1000 Reparaciones Exitosas</h4>
+                    <div class="servicio-card animated-card">
+                        <i class="fas fa-wrench icono-servicio"></i>
+                        <h3>Reparación Especializada</h3>
+                        <p>Diagnóstico y solución de problemas de hardware y software para todas las marcas y modelos.</p>
                     </div>
-                    <div class="stat-item animated-card">
-                        <i class="fas fa-award"></i>
-                        <h4>+10 Años de Experiencia</h4>
+                    <div class="servicio-card animated-card">
+                        <i class="fas fa-handshake icono-servicio"></i>
+                        <h3>Compra de Equipos</h3>
+                        <p>Vendemos tus equipos usados de forma rápida y segura, con tasación justa y pago inmediato.</p>
+                    </div>
+                    <div class="servicio-card animated-card">
+                        <i class="fas fa-shield-alt icono-servicio"></i>
+                        <h3>Mantenimiento Preventivo</h3>
+                        <p>Optimización de rendimiento, limpieza interna y externa para prolongar la vida útil de tus equipos.</p>
+                    </div>
+                    <div class="servicio-card animated-card">
+                        <i class="fas fa-virus-slash icono-servicio"></i>
+                        <h3>Eliminación de Virus</h3>
+                        <p>Protege tu información. Eliminamos amenazas y configuramos tu sistema para máxima seguridad.</p>
+                    </div>
+                    <div class="servicio-card animated-card">
+                        <i class="fas fa-cloud-upload-alt icono-servicio"></i>
+                        <h3>Respaldo y Recuperación</h3>
+                        <p>Servicios profesionales para proteger tus datos importantes y recuperarlos en caso de pérdida.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="testimonios" class="seccion-alterna">
-        <div class="container">
-            <h2 class="titulo-seccion">Lo Que Dicen Nuestros Clientes</h2>
-            <div class="grid-testimonios">
-                <div class="testimonio-card animated-card">
-                    <p>"Excelente servicio de reparación. Mi laptop quedó como nueva en tiempo récord y a un precio justo."</p>
-                    <span>— Ana G., Emprendedora</span>
-                </div>
-                <div class="testimonio-card animated-card">
-                    <p>"Compré una PC reacondicionada y estoy muy contento. Funciona perfectamente y el trato fue muy profesional."</p>
-                    <span>— Carlos M., Estudiante</span>
-                </div>
-                <div class="testimonio-card animated-card">
-                    <p>"Vendí mi viejo computador y recibí una excelente oferta. Proceso rápido y sin complicaciones."</p>
-                    <span>— Laura P., Diseñadora</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="seccion-principal">
-        <div class="container">
-            <h2 class="titulo-seccion">Preguntas Frecuentes</h2>
-            <div class="faq-acordeon">
-                <div class="faq-item animated-card">
-                    <button class="faq-pregunta">
-                        <span>¿Cuánto cuesta el diagnóstico?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-respuesta">
-                        <p>¡El diagnóstico es completamente gratuito! Tráenos tu equipo, lo revisamos y te damos una cotización sin compromiso.</p>
+        <section id="productos" class="seccion-alterna"> <div class="container">
+                <h2 class="titulo-seccion">Productos Destacados</h2>
+                <p class="subtitulo-seccion">Equipos seleccionados por nuestros expertos, listos para ti.</p>
+                <div class="grid-productos">
+                    <div class="producto-card animated-card">
+                        <div class="producto-imagen">
+                            <img src="img/laptop-gamer.jpg" alt="Laptop Gamer">
+                        </div>
+                        <div class="producto-info">
+                            <h3>Laptop Gamer</h3>
+                            <p>Potencia extrema para tus juegos. Gráficos de última generación y 32GB RAM.</p>
+                            <a href="#contacto" class="boton secundario">Cotizar ahora</a>
+                        </div>
                     </div>
-                </div>
-                <div class="faq-item animated-card">
-                    <button class="faq-pregunta">
-                        <span>¿Qué garantía tienen las reparaciones?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-respuesta">
-                        <p>Ofrecemos una garantía de 90 días en todas nuestras reparaciones de hardware. La garantía cubre tanto la mano de obra como los repuestos instalados.</p>
+                    <div class="producto-card animated-card">
+                        <div class="producto-imagen">
+                            <img src="img/pc-oficina.jpg" alt="PC de Oficina">
+                        </div>
+                        <div class="producto-info">
+                            <h3>PC de Oficina</h3>
+                            <p>Rendimiento y fiabilidad para tu trabajo. Core i5, 16GB RAM y SSD rápido.</p>
+                            <a href="#contacto" class="boton secundario">Cotizar ahora</a>
+                        </div>
                     </div>
-                </div>
-                <div class="faq-item animated-card">
-                    <button class="faq-pregunta">
-                        <span>¿Compran equipos dañados?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-respuesta">
-                        <p>Sí. Compramos equipos funcionales y también dañados (dependiendo del modelo y el daño). Es una excelente opción si no quieres repararlo y prefieres obtener dinero por él.</p>
+                    <div class="producto-card animated-card">
+                        <div class="producto-imagen">
+                            <img src="img/macbook.jpg" alt="MacBook Reacondicionado">
+                        </div>
+                        <div class="producto-info">
+                            <h3>MacBook Pro (Reac.)</h3>
+                            <p>Diseño y potencia de Apple a un precio increíble. Verificado y con garantía.</p>
+                            <a href="#contacto" class="boton secundario">Cotizar ahora</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contacto" class="seccion-alterna">
-        <div class="container">
-            <h2 class="titulo-seccion">Contáctanos Hoy Mismo</h2>
-            <p class="subtitulo-seccion">Estamos listos para resolver tus dudas y ofrecerte la mejor solución.</p>
-            <div class="contacto-grid">
-                <div class="info-contacto-item animated-card">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <p><a href="mailto:blegarda@rifleyer.com">blegarda@rifleyer.com</a></p>
-                </div>
-                <div class="info-contacto-item animated-card">
-                    <i class="fas fa-phone-alt"></i>
-                    <h3>Teléfono</h3>
-                    <p><a href="tel:+573246161953">+57 3246161953</a></p>
-                </div>
-                <div class="info-contacto-item animated-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Dirección</h3>
-                    <p>CL 48D # 65a 57 C.C Carrusel del Exito Cerca a la estacion del metro suramericana</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-contenido">
-                <div class="footer-col">
-                    <h4>Rifleyer PC</h4>
-                    <p>Tu socio tecnológico de confianza. Compramos, vendemos y reparamos computadores.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Navegación</h4>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#proceso">Proceso</a></li>
-                        <li><a href="#sobre-nosotros">Nosotros</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Síguenos</h4>
-                    <div class="redes-sociales">
-                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <section id="proceso" class="seccion-principal"> <div class="container">
+                <h2 class="titulo-seccion">Nuestro Proceso</h2>
+                <p class="subtitulo-seccion">Transparente, rápido y eficiente.</p>
+                <div class="proceso-timeline">
+                    <div class="proceso-item animated-card">
+                        <div class="proceso-icono"><i class="fas fa-search"></i></div>
+                        <h3>1. Diagnóstico</h3>
+                        <p>Evaluamos tu equipo a fondo para identificar el problema y te damos una cotización clara y sin compromiso.</p>
+                    </div>
+                    <div class="proceso-item animated-card">
+                        <div class="proceso-icono"><i class="fas fa-cogs"></i></div>
+                        <h3>2. Reparación</h3>
+                        <p>Nuestros técnicos expertos utilizan repuestos de alta calidad para solucionar el problema con precisión y garantía.</p>
+                    </div>
+                    <div class="proceso-item animated-card">
+                        <div class="proceso-icono"><i class="fas fa-check-circle"></i></div>
+                        <h3>3. Entrega</h3>
+                        <p>Te devolvemos tu equipo 100% funcional, limpio y optimizado, listo para que sigas trabajando.</p>
                     </div>
                 </div>
             </div>
-            <p class="copyright">&copy; 2025 Rifleyer PC. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+        </section>
+        
+        <section id="sobre-nosotros" class="seccion-alterna">
+            <div class="container">
+                <h2 class="titulo-seccion">Sobre Rifleyer PC</h2>
+                <div class="contenido-sobre animated-card">
+                    <p>En Rifleyer PC, nacimos de la pasión por la tecnología y el compromiso de ofrecer soluciones informáticas confiables y accesibles...</p>
+                    <p>Nuestro equipo de técnicos especializados está dedicado a brindar un servicio excepcional...</p>
+                    <div class="stats-grid">
+                        <div class="stat-item animated-card">
+                            <i class="fas fa-users"></i>
+                            <h4>+500 Clientes Satisfechos</h4>
+                        </div>
+                        <div class="stat-item animated-card">
+                            <i class="fas fa-tools"></i>
+                            <h4>+1000 Reparaciones Exitosas</h4>
+                        </div>
+                        <div class="stat-item animated-card">
+                            <i class="fas fa-award"></i>
+                            <h4>+10 Años de Experiencia</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <a href="https://wa.me/573246161953" class="whatsapp-flotante" target="_blank" aria-label="Chatea con nosotros en WhatsApp">
+        <section id="testimonios" class="seccion-principal">
+            <div class="container">
+                <h2 class="titulo-seccion">Lo Que Dicen Nuestros Clientes</h2>
+                <div class="grid-testimonios">
+                    <div class="testimonio-card animated-card">
+                        <p>"Excelente servicio de reparación. Mi laptop quedó como nueva..."</p>
+                        <span>— Ana G., Emprendedora</span>
+                    </div>
+                    <div class="testimonio-card animated-card">
+                        <p>"Compré una PC reacondicionada y estoy muy contento..."</p>
+                        <span>— Carlos M., Estudiante</span>
+                    </div>
+                    <div class="testimonio-card animated-card">
+                        <p>"Vendí mi viejo computador y recibí una excelente oferta..."</p>
+                        <span>— Laura P., Diseñadora</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="seccion-alterna">
+            <div class="container">
+                <h2 class="titulo-seccion">Preguntas Frecuentes</h2>
+                <div class="faq-acordeon">
+                    <div class="faq-item animated-card">
+                        <button class="faq-pregunta">
+                            <span>¿Cuánto cuesta el diagnóstico?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-respuesta">
+                            <p>¡El diagnóstico es completamente gratuito!...</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animated-card">
+                        <button class="faq-pregunta">
+                            <span>¿Qué garantía tienen las reparaciones?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-respuesta">
+                            <p>Ofrecemos una garantía de 90 días...</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animated-card">
+                        <button class="faq-pregunta">
+                            <span>¿Compran equipos dañados?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-respuesta">
+                            <p>Sí. Compramos equipos funcionales y también dañados...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="seccion-principal">
+            <div class="container">
+                <h2 class="titulo-seccion">Contáctanos Hoy Mismo</h2>
+                <p class="subtitulo-seccion">Estamos listos para resolver tus dudas y ofrecerte la mejor solución.</p>
+                <div class="contacto-grid">
+                    <div class="info-contacto-item animated-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p><a href="mailto:blegarda@rifleyer.com">blegarda@rifleyer.com</a></p>
+                    </div>
+                    <div class="info-contacto-item animated-card">
+                        <i class="fas fa-phone-alt"></i>
+                        <h3>Teléfono</h3>
+                        <p><a href="tel:+573246161953">+57 3246161953</a></p>
+                    </div>
+                    <div class="info-contacto-item animated-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Dirección</h3>
+                        <p>CL 48D # 65a 57 C.C Carrusel del Exito</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-contenido">
+                    <div class="footer-col">
+                        <h4>Rifleyer PC</h4>
+                        <p>Tu socio tecnológico de confianza...</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Navegación</h4>
+                        <ul>
+                            <li><a href="#inicio">Inicio</a></li>
+                            <li><a href="#servicios">Servicios</a></li>
+                            <li><a href="#productos">Productos</a></li>
+                            <li><a href="#proceso">Proceso</a></li>
+                            <li><a href="#sobre-nosotros">Nosotros</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="#contacto">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Síguenos</h4>
+                        <div class="redes-sociales">
+                            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <p class="copyright">&copy; 2025 Rifleyer PC. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+    </main> <a href="https://wa.me/573246161953" class="whatsapp-flotante" target="_blank" aria-label="Chatea con nosotros en WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
